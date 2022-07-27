@@ -8,9 +8,10 @@ class Holder():
     def shape(self):
         def count(a):
             dim = []
-            if isinstance(a, list) and len(a)>0:
+            if isinstance(a, list):
                 dim.append(len(a))
-                dim += count(a[0])
+                if len(a) > 0:
+                    dim += count(a[0])
             return dim
         dim = count(self.data)
         return tuple(dim)
